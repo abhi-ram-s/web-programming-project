@@ -8,6 +8,7 @@ import {
   IAgoraRTCClient,
   IRemoteAudioTrack,
 } from "agora-rtc-sdk-ng";
+import { wrap } from "module";
 
 type TCreateRoomResponse = {
   room: Room;
@@ -320,7 +321,7 @@ export default function Home() {
         </div>
 
         {/* Right-hand side chat panel with increased width */}
-        <div className="chat-panel" style={{ flex: 2, border: '1px solid #ccc', padding: '20px', maxHeight: '600px', overflowY: 'auto' }}>
+        <div className="chat-panel" style={{ width:800,flex: 2, border: '1px solid #ccc', padding: '20px', maxHeight: '600px',maxWidth:'800px', wordWrap:"break-word" }}>
           <ul>
             {messages.map((message, idx) => (
               <li key={idx}>

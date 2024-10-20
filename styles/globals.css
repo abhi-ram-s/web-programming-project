@@ -108,6 +108,7 @@ a {
 
 .chat-window {
   display: flex;
+  text-wrap: wrap;
   gap: 150px;
 }
 

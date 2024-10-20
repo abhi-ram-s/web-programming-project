@@ -38,7 +38,7 @@ An Omegle-like video chat platform built using Next.js, Agora RTC, Agora RTM, an
 1. Clone the repository:
     ```bash
     git clone https://github.com/abhi-ram-s/web-programming-project.git
-    cd omegle-clone
+    cd web-programming-project
     ```
 
 2. Install dependencies:

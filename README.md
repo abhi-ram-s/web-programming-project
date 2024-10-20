@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Omegle Clone
 
-## Getting Started
+An Omegle-like video chat platform built using Next.js, Agora RTC, Agora RTM, and MongoDB. This project allows users to randomly connect with others, join a chat room, and communicate via video and audio streams.
 
-First, run the development server:
+## Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+  - [Start Chatting](#start-chatting)
+  - [Video and Audio](#video-and-audio)
+  - [Messaging](#messaging)
+  - [Next Room](#next-room)
+- [Backend API](#backend-api)
+- [Known Issues](#known-issues)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- Random chat room creation and matching.
+- Video and audio streaming using Agora RTC.
+- Real-time messaging using Agora RTM.
+- Room management (create, join, and leave rooms).
+- Integrated with MongoDB for room status tracking.
+
+## Tech Stack
+
+- **Frontend**: Next.js, React
+- **Real-Time Communication**: Agora RTC, Agora RTM
+- **Backend**: Node.js, Express.js (via Next.js API routes)
+- **Database**: MongoDB (via Mongoose)
+
+## Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/abhi-ram-s/web-programming-project.git
+    cd web-programming-project
+    ```
+
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Set up environment variables (see below).
+
+4. Run the development server:
+    ```bash
+    npm run dev
+    ```
+
+5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Environment Variables
+
+Create a `.env` file in the root of your project and add the following environment variables:
 
 ```bash
-npm run dev
-# or
-yarn dev
+NEXT_PUBLIC_AGORA_APP_ID=your_agora_app_id
+MONGODB_URI=your_mongodb_connection_string
+AGORA_APP_CERT=your_agora_primary_certificate_key
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

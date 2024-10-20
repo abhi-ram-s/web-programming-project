@@ -1,9 +1,16 @@
 .main {
+  background-image: url('back2.jpg'); /* Replace with your image path */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  min-height: 100vh; /* Ensure it covers the full height of the viewport */
+  padding: 20px; /* Add some padding if necessary */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 3rem;
+  
   min-height: 100vh;
 }
 

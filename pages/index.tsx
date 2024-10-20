@@ -150,13 +150,22 @@ export default function Home() {
   const [themAudio, setThemAudio] = useState<IRemoteAudioTrack>();
   const channelRef = useRef<RtmChannel>();
   const rtcClientRef = useRef<IAgoraRTCClient>();
+  const names = ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank'];
+  const [randomName, setRandomName] = useState('');
+
+  const generateRandomName = () => {
+    const name = names[Math.floor(Math.random() * names.length)];
+    setRandomName(name);
+  };
 
   function handleNextClick() {
     connectToARoom();
+    generateRandomName();
   }
 
   function handleStartChattingClicked() {
     connectToARoom();
+    generateRandomName();
   }
 
   async function handleSubmitMessage(e: React.FormEvent) {
@@ -250,57 +259,130 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
+<main className={styles.main}>
+  {isChatting ? (
+    <>
+      <div className="header-container">
+        <h1>Random.io</h1>
+        <h2>
+          Random.io is a platform for spontaneous, anonymous chats with people around the world. 
+          Connect instantly, meet new friends, and enjoy unique conversations with just a click. 
+          Dive into the randomness and start chatting now!
+        </h2>
+      </div>
 
-      <main className={styles.main}>
-        {isChatting ? (
-          <>
-            {room._id}
-            <button onClick={handleNextClick}>next</button>
-            <div className="chat-window">
-              <div className="video-panel">
-                <div className="video-stream">
-                  {myVideo && (
-                    <VideoPlayer
-                      style={{ width: "100%", height: "100%" }}
-                      videoTrack={myVideo}
-                    />
-                  )}
-                </div>
-                <div className="video-stream">
-                  {themVideo && (
-                    <VideoPlayer
-                      style={{ width: "100%", height: "100%" }}
-                      videoTrack={themVideo}
-                    />
-                  )}
-                </div>
-              </div>
+      <button
+        id="newstyle"
+        onClick={handleNextClick}
+        style={{
+          width: '50px',
+          height: '30px',
+          color: 'rgb(225, 234, 235)',
+          backgroundColor: '#007bff',
+          border: 'none',
+          borderRadius: '10px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s',
+        }}
+      >
+        Next
+      </button>
 
-              <div className="chat-panel">
-                <ul>
-                  {messages.map((message, idx) => (
-                    <li key={idx}>
-                      {convertToYouThem(message)} - {message.message}
-                    </li>
-                  ))}
-                </ul>
+      <div className="chat-window" style={{ display: 'flex' }}>
+        <div className="video-panel" style={{ flex: 1, marginRight: '20px' }}>
+          {/* Video stream for the user with the name above */}
+          <div className="video-stream" style={{ marginBottom: '20px' }}>
+            <p style={{ textAlign: 'center', fontWeight: 'bold', marginBottom: '5px' }}>
+              User Name: {randomName}
+            </p>
+            {myVideo && (
+              <VideoPlayer
+                style={{ width: '100%', height: '100%' }}
+                videoTrack={myVideo}
+              />
+            )}
+          </div>
 
-                <form onSubmit={handleSubmitMessage}>
-                  <input
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                  ></input>
-                  <button>submit</button>
-                </form>
-              </div>
-            </div>
-          </>
-        ) : (
-          <>
-            <button onClick={handleStartChattingClicked}>Start Chatting</button>
-          </>
-        )}
-      </main>
+          {/* Video stream for the connected user with their name above */}
+          <div className="video-stream">
+            <p style={{ textAlign: 'center', fontWeight: 'bold', marginBottom: '5px' }}>
+              Connected User
+            </p>
+            {themVideo && (
+              <VideoPlayer
+                style={{ width: '100%', height: '100%' }}
+                videoTrack={themVideo}
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Right-hand side chat panel with increased width */}
+        <div className="chat-panel" style={{ flex: 2, border: '1px solid #ccc', padding: '20px', maxHeight: '600px', overflowY: 'auto' }}>
+          <ul>
+            {messages.map((message, idx) => (
+              <li key={idx}>
+                {convertToYouThem(message)} - {message.message}
+              </li>
+            ))}
+          </ul>
+
+          <form onSubmit={handleSubmitMessage} style={{ marginTop: '20px' }}>
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              style={{ width: '80%', padding: '10px', marginRight: '10px' }}
+            />
+            <button
+              style={{
+                padding: '10px 20px',
+                backgroundColor: '#007bff',
+                color: 'white',
+                border: 'none',
+                borderRadius: '5px',
+                cursor: 'pointer',
+              }}
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
+  ) : (
+    <>
+      <div className="header-container">
+        <h1>Random.io</h1>
+        <h2>
+          Random.io is a platform for spontaneous, anonymous chats with people around the world. 
+          Connect instantly, meet new friends, and enjoy unique conversations with just a click. 
+          Dive into the randomness and start chatting now!
+        </h2>
+      </div>
+      <button
+        id="newstyle"
+        onClick={handleStartChattingClicked}
+        style={{
+          width: '240px',
+          height: '60px',
+          color: 'rgb(225, 234, 235)',
+          backgroundColor: '#007bff',
+          border: 'none',
+          borderRadius: '10px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          transition: 'background-color 0.3s',
+        }}
+      >
+        Start Chatting
+      </button>
+    </>
+  )}
+</main>
+
     </>
   );
 }
+

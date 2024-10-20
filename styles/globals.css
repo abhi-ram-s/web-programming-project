@@ -108,26 +108,62 @@ a {
 
 .chat-window {
   display: flex;
-  gap: 50px;
+  gap: 150px;
 }
 
 .video-panel {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 100px;
 }
 
 .video-stream {
   width: 200px;
   height: 160px;
-  background: white;
+  background: rgb(51, 46, 46);
 }
 
 .chat-panel {
-  background: white;
-  color: black;
+  background: rgb(51, 47, 47);
+  color: rgba(246, 97, 5, 0.864);
   padding: 20px;
   flex-direction: column;
   display: flex;
   justify-content: space-between;
 }
+.chat-panel button {
+                width: '50px';          
+                height: '30px';          
+                color: rgb(225, 234, 235);
+                background-color :#0056b3; 
+                
+                border: 'none'; 
+                border-radius: '10px' ;
+                font-size: '16px';
+                cursor: 'pointer' ;
+                transition: 'background-color 0.3s'; }
+
+.chat-panel button:hover {
+  background-color: #0056b3; /* Optional: Change background color on hover */
+}
+.header-container {
+  text-align: center;                /* Center the header text */
+  margin: 20px 0;                   /* Add margin for spacing */
+}
+
+.header-container h1 {
+  font-size: 48px;                   /* Large font size */
+  font-weight: bold;                 /* Bold text for emphasis */
+  color: #e84e39;                    /* A playful, vibrant color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+  transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+  cursor: pointer;                   /* Change cursor to pointer on hover */
+}
+
+/* Hover effects */
+.header-container h1:hover {
+  color: #ff1f8c;                    /* Neon pink color on hover */
+  transform: scale(1.1);             /* Slightly enlarge the text */
+}
+
+

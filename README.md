@@ -57,7 +57,7 @@ An Omegle-like video chat platform built using Next.js, Agora RTC, Agora RTM, an
 
 ## Environment Variables
 
-Create a `.envl` file in the root of your project and add the following environment variables:
+Create a `.env` file in the root of your project and add the following environment variables:
 
 ```bash
 NEXT_PUBLIC_AGORA_APP_ID=your_agora_app_id
